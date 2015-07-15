@@ -1,0 +1,20 @@
+<?php
+
+echo $this->url(
+    'application/default',
+    array(
+        'action'     => 'save',
+    ),
+    true
+);
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+    'application/default',
+    array(
+        'action'     => 'save',
+    ),
+    true
+));
+$form->prepare();
+
+echo $this->ztbForm($form);

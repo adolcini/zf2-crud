@@ -1,0 +1,28 @@
+<?php
+$items = $this->items;
+$form = $this->form;
+$form->prepare();
+$form->bind($items[0]);
+?>
+
+<table border="1">
+<tr>
+<?php foreach ($form->getElements() as $element) : ?>
+    <td><?php echo $element->getLabel(); ?></td>
+<?php endforeach; ?>
+<td></td>
+</tr>
+
+<?php foreach ($items as $item) : ?>
+<?php $form->bind($item);?>
+<tr>
+    <?php foreach ($form->getElements()  as $element) : ?>
+    <td><?php echo $element->getValue();?></td>
+    <?php endforeach; ?>
+    <td><a href="<?php echo $this->url('application/default', array('action' => 'view', 'id' => $item->id), true)?>">VIEW</a></td>
+</tr>
+<?php endforeach; ?>
+
+</table>
+
+

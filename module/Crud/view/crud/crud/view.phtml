@@ -1,0 +1,14 @@
+<?php
+$item = $this->item;
+$form = $this->form;
+$form->prepare();
+$form->bind($item);
+?>
+
+<table>
+<?php foreach ($form->getElements() as $element) : ?>
+<tr><td><?php echo $element->getLabel(); ?></td><td><?php echo $element->getValue();?></td></tr>
+<?php endforeach; ?>
+</table>
+<a href="<?php echo $this->url('application/default', array('action' => 'edit', 'id' => $item->id), true)?>">EDIT</a>
+
